@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+            padding: 20px;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .apply-button {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .apply-button:hover {
+            background-color: #218838;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Available Job Applications</h2>
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Job Title</th>
+                <th>Starting Date</th>
+                <th>Ending Date</th>
+                <th>Job Description</th>
+                <th>Apply</th>
+            </tr>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job[1] }}</td>
+                <td>{{ job[2] }}</td>
+                <td>{{ job[3] }}</td>
+                <td>{{ job[4] }}</td>
+                <td>{{ job[5] }}</td>
+                <td><a href="{{ job[6] }}" target="_blank" class="apply-button">Apply</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>
